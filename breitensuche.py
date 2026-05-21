@@ -15,7 +15,7 @@ def is_seller(person):
 
 def search(name):
     queue = deque()
-    queue += graph[name] #queue.append(name)
+    queue += graph[name]
     searched = []
     while queue:
         person = queue.popleft()
