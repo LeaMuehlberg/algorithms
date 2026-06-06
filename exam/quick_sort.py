@@ -28,7 +28,7 @@ def partition(arr, left, right):
         else:
             return j
 def quick_sort_ip(arr, left, right):
-    if left < right:
+    if left < right: # rekursionsabbruch
         mid = partition(arr, left, right)
         quick_sort_ip(arr, left, mid)
         quick_sort_ip(arr, mid + 1, right)
