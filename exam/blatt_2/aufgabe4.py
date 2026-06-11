@@ -1,4 +1,4 @@
-# liste -> heap. wurzelknoten wird entfernt und zur neuen liste hinzugefügt
+array = [7, 38, 2, 6, 12, 4, 8, 11, 34]
 def heap_sort(arr):
     heap = MaxHeap.createHeap(arr)
     sorted_list = []
@@ -6,4 +6,3 @@ def heap_sort(arr):
         biggest = heap.pop()
         sorted_list.append(biggest)
     return sorted_list
-print(heap_sort([3, 23, 5, 19, 21, 7]))    

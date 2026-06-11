@@ -4,7 +4,7 @@
 def insertion_sort(arr):
     for i in range(1, len(arr)):
         current_value = arr[i]
-        j = i - 1
+        j = i -1
         while j >= 0 and arr[j] > current_value:
             arr[j + 1] = arr[j]
             j -= 1
@@ -40,34 +40,13 @@ def quick_sort(arr):
     if len(arr) < 2:
         return arr
     pivot = arr[0]
-    left = [i for i in arr[1:] if i <= pivot]
+    left = [i for i in arr[1:] if i < pivot]
     right = [i for i in arr[1:] if i > pivot]
     return quick_sort(left) + [pivot] + quick_sort(right)
 print(quick_sort([3, 23, 5, 19, 21, 7]))
 
 # quick sort in place
-def partition(arr, left, right):
-    pivot = arr[left]
-    i = left - 1
-    j = right + 1
-    while True:
-        j -= 1
-        while arr[j] > pivot:
-            j -= 1
-        i += 1
-        while arr[i] < pivot:
-            i += 1
-        if i < j:
-            arr[i], arr[j] = arr[j], arr[i]
-        else:
-            return j
-def quick_sort_ip(arr, left, right):
-    if left < right:
-        mid = partition(arr, left, right)
-        quick_sort_ip(arr, left, mid)
-        quick_sort_ip(arr, mid + 1, right)
-    return arr
-print(quick_sort_ip([3, 23, 5, 19, 21, 7], 0, 5))
+ 
 
 # merge sort
 def merge_sort(arr):
@@ -77,6 +56,7 @@ def merge_sort(arr):
     left = arr[:mid]
     right = arr[mid:]
     return merge(merge_sort(left), merge_sort(right))
+
 def merge(a, b):
     result = []
     while len(a) > 0 and len(b) > 0:
@@ -88,3 +68,12 @@ def merge(a, b):
             b = b[1:]
     return result + a + b
 print(merge_sort([3, 23, 5, 19, 21, 7]))
+
+# heap_sort
+def heap_sort(arr):
+    heap = MaxHeap.createHeap(arr)
+    sorted_list = []
+    while len(heap) > 0:
+        biggest = heap.pop()
+        sorted_list.append(biggest)
+    return sorted_list
